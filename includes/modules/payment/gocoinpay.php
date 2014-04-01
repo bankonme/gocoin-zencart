@@ -144,6 +144,7 @@ class gocoinpay extends base {
     function selection() {
         global $order;
         $pay_type[] = array('id' => 'BTC', 'text' => 'Bitcoin');
+        $pay_type[] = array('id' => 'XDG', 'text' => 'Dogecoin');
         $pay_type[] = array('id' => 'LTC', 'text' => 'Litecoin');
         
         $selection = array('id' => $this->code,
