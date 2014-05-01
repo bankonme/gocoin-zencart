@@ -3,7 +3,7 @@ require('includes/application_top.php');
 if (!defined('MODULE_PAYMENT_GOCOIN_STATUS') || (MODULE_PAYMENT_GOCOIN_STATUS != 'True')) {
     exit;
 }
-
+ error_log('/******************************************************/\n'.date('h:i:s A').file_get_contents("php://input"),3,'tester.log');
 function callback() {
     global $db;
     _paymentStandard();
@@ -11,7 +11,7 @@ function callback() {
 
 function getNotifyData() {
     $post_data = file_get_contents("php://input");
-
+    //error_log('\n'.$post_data,3,'tester.log');
     if (!$post_data) {
         $response = new stdClass();
         $response->error = 'Post Data Error';
@@ -33,13 +33,13 @@ function _paymentStandard() {
     if (!$response) {
         $error = $error + 1;
         $error_msg[] = ' NotifyData Blank';
-        die('error');
+        
         //======================Error=============================     
     }
     if (isset($response->error) && $response->error != '') {
         $error = $error + 1;
         $error_msg[] = $response->error;
-        die('error');
+        
     }
     if (isset($response->payload)) {
 
@@ -84,8 +84,8 @@ function _paymentStandard() {
 
                     switch ($event) {
                         case 'invoice_created':
-                        case 'invoice_payment_received':
                             break;
+                        case 'invoice_payment_received':
                         case 'invoice_ready_to_ship':
                             if (isset($order_id) && is_numeric($order_id) && ($order_id > 0)) {
                                 $cur_sts = $sts_processing;
@@ -110,7 +110,7 @@ function _paymentStandard() {
                }
             
         } else {
-            die('error');
+           
         }
 
         //=================== Set To Array=====================================//
