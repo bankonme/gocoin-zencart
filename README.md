@@ -13,13 +13,13 @@ The order status in the admin panel will be "Processing" when the order is place
 #### Important Note: 
 Version 1.0.0 of this plugin only supports US Dollars as the Base Currency. Please make sure your Currency is set to US Dollars. Support for additional currencies is coming soon. 
 
-This plugin now supports Litecoin as well as Bitcoin
+This plugin supports Litecoin, Dogecoin, Bitcoin
 
 ### 1. Installation
 [ZenCart](https://www.zen-cart.com/) must be installed before installing this plugin.
 
-a. 	download the code structure in cataglog folder and copy the containts to corresponding folders in catalog folder of ZenCart application.<br>
-b.	copy gocointoken.php and gocoinnotify.php files on root folder od ZenCart application.
+a. 	download the code structure in catalog folder and copy the contents to corresponding folders in catalog folder of ZenCart application.<br>
+b.	copy gocointoken.php and gocoinnotify.php files on root folder of ZenCart application.
 
 ### 2. Setting up an application.
 1) [Enable the GoCoin Hosted Payment Gateway](http://www.gocoin.com/docs/hosted_gateway)<br>
