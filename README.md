@@ -1,4 +1,4 @@
-Version 1.0.0
+Version 1.0.1
 
 ©2014 GoCoin Holdings Limited and GoCoin International Group of companies hereby grants you permission to utilize a copy of this software and documentation in connection with your use of the GoCoin.com service subject the the published Terms of Use and Privacy Policy published on the site and subject to change from time to time at the discretion of GoCoin.<br><br>
 
@@ -18,8 +18,8 @@ This plugin now supports Litecoin as well as Bitcoin
 ### 1. Installation
 [ZenCart](https://www.zen-cart.com/) must be installed before installing this plugin.
 
-a. 	download the code structure in cataglog folder and copy the containts to corresponding folders in catalog folder of OSCommerce application.<br>
-b.	copy gocointoken.php and gocoinnotify.php files on root folder od Zen-Cart application.
+a. 	download the code structure in cataglog folder and copy the containts to corresponding folders in catalog folder of ZenCart application.<br>
+b.	copy gocointoken.php and gocoinnotify.php files on root folder od ZenCart application.
 
 ### 2. Setting up an application.
 1) [Enable the GoCoin Hosted Payment Gateway](http://www.gocoin.com/docs/hosted_gateway)<br>
