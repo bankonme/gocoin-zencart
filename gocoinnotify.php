@@ -3,7 +3,7 @@ require('includes/application_top.php');
 if (!defined('MODULE_PAYMENT_GOCOIN_STATUS') || (MODULE_PAYMENT_GOCOIN_STATUS != 'True')) {
     exit;
 }
- error_log('/******************************************************/\n'.date('h:i:s A').file_get_contents("php://input"),3,'tester.log');
+//error_log('/******************************************************/\n'.date('h:i:s A').file_get_contents("php://input"),3,'tester.log');
 function callback() {
     global $db;
     _paymentStandard();
@@ -84,8 +84,8 @@ function _paymentStandard() {
 
                     switch ($event) {
                         case 'invoice_created':
-                            break;
                         case 'invoice_payment_received':
+                            break;
                         case 'invoice_ready_to_ship':
                             if (isset($order_id) && is_numeric($order_id) && ($order_id > 0)) {
                                 $cur_sts = $sts_processing;
@@ -93,8 +93,7 @@ function _paymentStandard() {
 
                                 if ($order_query->RecordCount() > 0) {
                                     if ($order_query->fields['orders_status'] == MODULE_PAYMENT_GOCOIN_DEFAULT_ORDER_STATUS_ID) {
-
-                                        if ($status == 'paid') {
+                                        if (($status == 'paid') || ($status == 'ready_to_ship')) {
                                             $sts1 = (MODULE_PAYMENT_GOCOIN_ORDER_STATUS_ID > 0 ? (int) MODULE_PAYMENT_GOCOIN_ORDER_STATUS_ID : (int) DEFAULT_ORDERS_STATUS_ID);
                                             $db->Execute("update " . TABLE_ORDERS . " set orders_status = '" . $db->prepare_input($sts1) . "', last_modified = now() where orders_id = '" . (int) $order_id . "'");
                                             $comment_status = $status;
