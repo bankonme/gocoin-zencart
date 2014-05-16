@@ -1,5 +1,5 @@
 <?php
-
+if ( !defined('__DIR__') ) define('__DIR__', dirname(__FILE__));
 /**
  * GoCoin Api
  * A PHP-based GoCoin client library with a focus on simplicity and ease of integration
@@ -7,7 +7,7 @@
 
 class GoCoin
 {
-  const VERSION = '0.5';
+  const VERSION = '0.6';
 
   //production hostnames
   const PRODUCTION_HOST = "api.gocoin.com";
@@ -97,7 +97,6 @@ class GoCoin
     if (!$client -> authorize_api($code))
     {
       throw new Exception($client -> getError());
-      
     }
     return $client -> getToken();
   }
